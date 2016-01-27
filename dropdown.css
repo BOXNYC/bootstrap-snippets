@@ -1,0 +1,64 @@
+/**
+	* Dropdown caret-facing CSS arrow
+	*/
+@media (min-width: 768px) {
+	.dropdown:hover .dropdown-menu {
+		display: block;
+	}
+	.dropdown [data-toggle="dropdown"][aria-expanded="true"] .caret::after,
+	.dropdown:hover [data-toggle="dropdown"] .caret::after {
+    content: " ";
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #000;
+    position: absolute;
+    top: 100%;
+    margin-top: -10px;
+    margin-left: -10px;
+	}
+	html.rgba .dropdown [data-toggle="dropdown"][aria-expanded="true"] .caret::after,
+	html.rgba .dropdown:hover [data-toggle="dropdown"] .caret::after {
+		border-bottom-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+/**
+	* Dropdown and arrow panic animation
+	*/
+@-moz-keyframes panic {
+  0% { -moz-transform: translateY(10px); -moz-opacity: 0.0; }
+  100% { -moz-transform: translateY(0); -moz-opacity: 1.0; }
+}
+@-webkit-keyframes panic {
+  0% { -webkit-transform: translateY(10px); -webkit-opacity: 0.0; }
+  100% { -webkit-transform: translateY(0); -webkit-opacity: 1.0; }
+}
+@keyframes panic {
+  0% { transform: translateY(10px); opacity: 0.0; }
+  100% { transform: translateY(0); opacity: 1.0; }
+}
+@media (min-width: 768px) {
+	html.cssanimations .dropdown:hover:not(.open) .dropdown-menu,
+	.dropdown:hover:not(.open) [data-toggle="dropdown"] .caret::after {
+		-moz-animation-name: panic;
+	  -moz-animation-iteration-count: 1;
+	  -moz-animation-timing-function: ease-out;
+	  -moz-animation-duration: 0.5s;
+	  -moz-animation-delay: 0s;
+	  -moz-animation-fill-mode: forwards;
+	  -webkit-animation-name: panic;
+	  -webkit-animation-iteration-count: 1;
+	  -webkit-animation-timing-function: ease-out;
+	  -webkit-animation-duration: 0.5s;
+	  -webkit-animation-delay: 0s;
+	  -webkit-animation-fill-mode: forwards;
+	  animation-name: panic;
+	  animation-iteration-count: 1;
+	  animation-timing-function: ease-out;
+	  animation-duration: 0.5s;
+	  animation-delay: 0s;
+	  animation-fill-mode: forwards;
+	}
+}
